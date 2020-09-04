@@ -2,7 +2,7 @@
 CREATE DATABASE peliculas;
 
 -- Cambiar a la Base de Datos Peliculas
-\d peliculas
+\c peliculas
 
 -- Revisar los archivos peliculas.csv y reparto.csv para crear las tablas correspondientes, determinando la relación entre ambas tablas. 
 CREATE TABLE peliculas(id SERIAL PRIMARY KEY,pelicula VARCHAR(100),año_estreno INT,director VARCHAR(70));
