@@ -33,7 +33,9 @@ SELECT COUNT(actores) FROM (SELECT nombre FROM reparto GROUP BY nombre) AS actor
 SELECT pelicula FROM peliculas WHERE año_estreno >= 1990 AND año_estreno <= 1999 ORDER BY pelicula ASC;
 
 -- Listar el reparto de las películas lanzadas el año 2001
-SELECT pelicula FROM peliculas WHERE año_estreno = 2001;
+SELECT reparto.nombre FROM reparto
+INNER JOIN peliculas ON reparto.pelicula_id = peliculas.id
+WHERE peliculas.año_estreno = 2001;
 
 -- Listar los actores de la película más nueva 
 SELECT nombre FROM reparto INNER JOIN peliculas ON peliculas.id = reparto.pelicula_id WHERE año_estreno = (SELECT MAX(año_estreno) FROM peliculas);
